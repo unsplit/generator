@@ -1,15 +1,18 @@
 <?php
 
+// Full path from url
+//$dir = dirname($_SERVER["HTTP_REFERER"]) . "/";
+
 // Get all the files from inside the components folder
-$com = 'src/components';
+$com = '../unsplit/src/components';
 $components = scandir($com);
 
 // Get all the files from inside the functions folder
-$funct = 'src/functions';
+$funct = '../unsplit/src/functions';
 $functions = scandir($funct);
 
 // Get all the plugins from inside the plugins folder
-$plug = 'src/plugins';
+$plug = '../unsplit/src/plugins/';
 $plugins = scandir($plug);
 
 // Set the header to Javascript
@@ -28,7 +31,7 @@ foreach ($files as $file) {
 
   // If the file is the core output it
   if($file == "core") {
-    $core = file_get_contents('src/core.js');
+    $core = file_get_contents('../unsplit/src/core.js');
     echo $core;
   } else {
     // If the file is not, then add the .js extension
